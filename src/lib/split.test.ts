@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { splitEvenly } from "./split";
+import { splitEvenly, splitFairly } from "./split";
 
 describe("splitEvenly", () => {
   it("splits a clean amount evenly", () => {
@@ -14,5 +14,17 @@ describe("splitEvenly", () => {
 
   it("throws when people is less than 1", () => {
     expect(() => splitEvenly(1000, 0)).toThrow();
+  });
+});
+
+describe("splitFairly", () => {
+  it("sums exactly to the total, spreading the remainder", () => {
+    const parts = splitFairly(1000, 3);
+    expect(parts).toEqual([334, 333, 333]);
+    expect(parts.reduce((a, b) => a + b, 0)).toBe(1000);
+  });
+
+  it("splits evenly divisible amounts with no remainder", () => {
+    expect(splitFairly(4200, 3)).toEqual([1400, 1400, 1400]);
   });
 });

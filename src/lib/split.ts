@@ -23,3 +23,19 @@ export function splitEvenly(totalCents: number, people: number): number {
   }
   return Math.floor(totalCents / people);
 }
+
+/**
+ * Split a bill across people, distributing the rounding remainder so the
+ * parts sum exactly to `totalCents`. The first `remainder` people each get
+ * one extra cent.
+ *
+ * @param totalCents - the total bill in integer cents
+ * @param people - the number of people sharing the bill (must be >= 1)
+ * @returns an array of `people` per-person amounts in cents that sum to `totalCents`
+ * @throws {Error} if `people` is less than 1
+ */
+export function splitFairly(totalCents: number, people: number): number[] {
+  const base = splitEvenly(totalCents, people);
+  const remainder = totalCents - base * people;
+  return Array.from({ length: people }, (_, i) => base + (i < remainder ? 1 : 0));
+}

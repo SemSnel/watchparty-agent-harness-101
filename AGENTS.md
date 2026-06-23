@@ -19,3 +19,4 @@ Next.js bill splitter.
 * Dont push to main
 * Create clean new branches based on main
 * Use feature branches with 'feature/{use-case}'
+* Check the 'ci' output after creating a PR

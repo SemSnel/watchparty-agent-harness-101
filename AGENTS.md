@@ -20,3 +20,9 @@ Next.js bill splitter.
 * Create clean new branches based on main
 * Use feature branches with 'feature/{use-case}'
 * Check the 'ci' output after creating a PR
+
+## Context
+
+* `specs/` — what to build (feature specs, requirements)
+* `docs/` — human-facing docs (architecture, decisions, onboarding)
+* `agent_docs/` — AI-only context (conventions, gotchas, code maps)
